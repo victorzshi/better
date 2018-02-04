@@ -4,10 +4,10 @@
 
       <div class="navbar-start">
         <!-- <a class="navbar-item" :href="getHomeLink"> -->
-        <router-link to="/home">
-        <a class="navbar-item">
-          <img id="brandLogo" src="./assets/logo.png" alt="Better: a social platform for your personal invesment.">
-        </a>
+        <router-link to="/home/" class="navbar-item">
+          <a class="navbar-item">
+            <img id="brandLogo" src="./assets/logo.png" alt="Better: a social platform for your personal invesment.">
+          </a>
         </router-link>
       </div>
 
@@ -18,11 +18,11 @@
 
       <!-- Right side of navbar -->
       <div class="navbar-end">
-        <a class="navbar-item" :href="getSocialLink">
+        <router-link to="/social/" class="navbar-item">
           <a class="navbar-item">
             <img class="navIcons" src="./assets/social_icon.png">
           </a>
-        </a>
+        </router-link> 
         <a class="navbar-item" v-on:click="openModal('help')">
           <a class="navbar-item">
             <img class="navIcons" src="./assets/info_icon.png">
@@ -86,8 +86,8 @@ export default {
 <style>
 
 .navbar-item img #brandLogo {
-    max-height: 136px;
-    max-width: 240px;
+    min-height: 136px;
+    min-width: 240px;
     display: block;
     margin-left: auto;
     margin-right: auto;

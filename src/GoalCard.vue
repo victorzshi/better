@@ -18,9 +18,9 @@
           <div class="columns">
             <div class="column is-half">
               <p class="is-size-5">
-                Due: {{ finish_date }}
+                Due {{ finish_date }}
                 <br>
-                {{ finish_time }}
+                By {{ finish_time }}
               </p>
               
             </div>
@@ -64,49 +64,48 @@ export default {
       return date.toDateString()
     },
     finish_time: function () {
-      let date = new Date(this.bet.deadline)
-      return date.toTimeString()
+      let hour = new Date(this.bet.deadline).getHours()
+      if (hour > 12) {
+        hour -= 12
+        if (hour !== 12) {
+          hour += ' pm'
+        }
+        else {
+          hour += ' am'
+        }
+      }
+      else if (hour == 12) {
+        hour += ' pm' 
+      }
+      else {
+        hour += ' am'
+      }
+      return hour
     },
     progress: function () {
+      let date1 = new Date(this.bet.deadline)
+      let date2 = new Date(this.bet.start_date)
+      let current_date = new Date()
+      console.log(date1.toDateString())
+      console.log(date2.toDateString())
 
-    },
-    // progress: function () {
-    //   let current_date = new Date()
-    //   this.finish_date = new Date(this.deadline)
-    //   this.start_date = new Date(this.start_date)
-    //   // this.finish_time = this.finish_date.toTimeString()
-    //   console.log("Current date: " + current_date)
-    //   console.log("Finish date:  " + this.finish_date.toDateString())
-    //   console.log("Start date " + this.start_date.toDateString())
+      let totalTimeDiff = Math.abs(date1.getTime() - date2.getTime())
+      let totalDaysDiff = Math.ceil(totalTimeDiff / (1000 * 3600 * 24))
 
-    //   let totalTimeDiff = Math.abs(this.finish_date.getTime() - this.start_date.getTime())
-    //   let totalDaysDiff = Math.ceil(totalTimeDiff / (1000 * 3600 * 24))
+      console.log(totalDaysDiff)
 
-    //   console.log("TOTAL DAYS: " + totalDaysDiff)
+      let remainTimeDiff = Math.abs(date1.getTime() - current_date.getTime())
+      let remainDaysDiff = Math.ceil(remainTimeDiff / (1000 * 3600 * 24))
 
-    //   let remainTimeDiff = Math.abs(this.finish_date.getTime() - current_date.getTime())
-    //   let remainDaysDiff = Math.ceil(remainTimeDiff / (1000 * 3600 * 24))
-    //   console.log("REMAIN DAYS: " + remainDaysDiff)
+      console.log(remainDaysDiff)
 
-    //   console.log(Math.ceil(remainDaysDiff / totalDaysDiff * 100))
+      console.log(remainDaysDiff / totalDaysDiff)
 
-    //   return Math.ceil(remainDaysDiff / totalDaysDiff)
-    // },
-    // finish_date: function () {
-    //   this.finish_date = new Date(this.deadline)
-    //   return this.finish_date.getTime()
-    // },
-    // finish_time: function () {
-    //   this.finish_date = new Date(this.deadline)
-    //   return this.finish_date.toTimeString()
-    // }
+      return Math.ceil(remainDaysDiff / totalDaysDiff)
+    }
   },
   created: function() {
-    this.amount = this.bet.amount
     this.complete = this.bet.complete
-    this.deadline = this.bet.deadline
-    this.description = this.bet.description
-    this.start_date = this.bet.start_date
   }
 }
 </script>

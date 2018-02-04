@@ -5,7 +5,7 @@
 
         <div class="section">
           <h1 class="title has-text-centered">
-            Current bets in {{ channelName }}
+            Current bets in #{{ channelName }}
           </h1>
         </div>
 
@@ -36,7 +36,41 @@ export default {
     return {
       channelName: 'placeholder',
       group: []
-      // group: [
+    }
+  },
+  created: function() {
+    // // Get group info for social list
+    // // let groupId = 'C94JEJZGF'
+    console.log(this.$route.params.channel)
+    // GET /someUrl
+    this.$http.get('https://bigbetter.lib.id/betterdb@dev/getgroup/', {params: {channel: this.$route.params.channel}}).then(response => {
+      // get body data
+      // this.someData = response.body;
+      console.log(response.body)
+      this.channelName = response.body.name
+      console.log(this.channelName)
+      this.group = response.body.users
+      console.log("GROUP")
+      console.log(this.group)
+
+    }, response => {
+      // error callback
+      console.log("Social.vue HTTP GET didn't work")
+    });
+
+  }
+}
+</script>
+
+<style>
+
+body {
+  background-color: #EDF7ED;
+}
+
+</style>
+
+<!--       // group: [
       //   {
       //     id: 1,
       //     profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
@@ -73,37 +107,4 @@ export default {
       //     deadline: 'Mar 4, 2018',
       //     progress: 45,
       //   }
-      // ],
-    }
-  },
-  created: function() {
-    // // Get group info for social list
-    // // let groupId = 'C94JEJZGF'
-    console.log(this.$route.params.channel)
-    // GET /someUrl
-    this.$http.get('https://bigbetter.lib.id/betterdb@dev/getgroup/', {params: {channel: this.$route.params.channel}}).then(response => {
-      // get body data
-      // this.someData = response.body;
-      console.log(response.body)
-      this.channelName = response.body.name
-      console.log(this.channelName)
-      this.group = response.body.users
-      console.log("GROUP")
-      console.log(this.group)
-
-    }, response => {
-      // error callback
-      console.log("Social.vue HTTP GET didn't work")
-    });
-
-  }
-}
-</script>
-
-<style>
-
-body {
-  background-color: #EDF7ED;
-}
-
-</style>
+      // ], -->

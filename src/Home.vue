@@ -64,8 +64,8 @@ export default {
       name: 'Victor',
       goal: 'Wake up early',
       betAmount: 10,
-      deadline: 'Feb 30, 2018',
-      progress: 5,
+      deadline: 'Feb 11, 2018',
+      progress: 0,
       encouragements: [
         "“The only person you are destined to become is the person you decide to be.” ~Ralph Waldo Emerson",
         "“Start where you are. Use what you have. Do what you can.” ~Arthur Ashe",
@@ -123,6 +123,22 @@ export default {
     this.encouragement = this.encouragements[index]
 
     // Set user info
+    console.log(this.$route.params.channel)
+    // GET /someUrl
+    this.$http.get('https://bigbetter.lib.id/betterdb@dev/getgroup/', {params: {channel: this.$route.params.channel}}).then(response => {
+      // get body data
+      // this.someData = response.body;
+      console.log(response.body)
+      this.channelName = response.body.name
+      console.log(this.channelName)
+      this.group = response.body.users
+      console.log("GROUP")
+      console.log(this.group)
+
+    }, response => {
+      // error callback
+      console.log("Social.vue HTTP GET didn't work")
+    });
   }
 }
 </script>
@@ -148,6 +164,10 @@ export default {
 
 #deadline {
   padding-bottom: 5%;
+}
+
+body {
+  background-color: #EDF7ED;
 }
 
 </style>

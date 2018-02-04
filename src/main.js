@@ -10,7 +10,7 @@ import Home from './Home.vue'
 import Social from './Social.vue'
 import Navbar from './Navbar.vue'
 import FooterDiv from './Footer.vue'
-// import NotFound from './NotFound.vue'
+import NotFound from './NotFound.vue'
 
 // Routing
 const router = new VueRouter({
@@ -19,7 +19,10 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/home', component: Home },
-    { path: '/social/:channel', component: Social }
+    { path: '/home/:channel', component: Home },
+    { path: '/social', component: NotFound },
+    { path: '/social/:channel', component: Social },
+    { path: '/social/undefined', component: NotFound }
   ]
 })
 

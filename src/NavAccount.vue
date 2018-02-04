@@ -9,17 +9,6 @@
         </header>
         <section class="modal-card-body">
 
-          <div class="content">
-            <p class="subtitle">
-              Current settings...
-            </p>
-
-
-
-            <p class="subtitle">
-              New settings...
-            </p>
-          </div>
         	<div class="columns">
 
         		<div class="column is-half">
