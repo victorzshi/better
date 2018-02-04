@@ -5,20 +5,20 @@
         <div class="columns">
           <div class="column is-3 is-offset-6">
             <div class="content has-text-left">
-              <p class="section subtitle">
+              <p class="subtitle">
                 <a href="#">About</a>
               </p>
-              <p class="section subtitle">
+              <p class="subtitle">
                 <a href="#">Contact</a>
               </p>
             </div>
           </div>
           <div class="column is-3">
             <div class="content has-text-left">
-              <p class="section subtitle">
+              <p class="subtitle">
                 <a href="#">Careers</a>
               </p>
-              <p class="section subtitle">
+              <p class="subtitle">
                 <a href="#">Privacy & Security</a>
               </p>
             </div>

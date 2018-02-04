@@ -89,10 +89,11 @@ export default {
     }
     // Get unique slack id for HTTP GET
     let groupId = window.location.pathname.split('/')
-    console.log("Path names: " + groupId)
     groupId = groupId[groupId.length - 1]
+    console.log("Path names: " + groupId)
     console.log("Social.vue Current group id: " + groupId)
-
+    groupId = 'C94JEJZGF'
+    
     // Send request
     xmlhttp.open('GET', 'https://bigbetter.lib.id/betterdb@dev/getgroup/' + groupId);
     xmlhttp.send();

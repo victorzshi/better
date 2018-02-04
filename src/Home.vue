@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <section class="section">
+    <section>
       <div class="container">
 
         <!-- Profile info -->
@@ -17,7 +17,7 @@
           <!-- Name, bet, goal -->
           <div class="tile">
             <div id="sphereContainer">
-              <div class="content has-text-centered">
+              <div id="sphereContent" class="content has-text-centered">
 
                 <p class="is-size-5">
                   Your Goal:
@@ -26,9 +26,6 @@
                   {{ progress }}%
                 </p>
 
-                <!-- <p class="is-size-5">
-                  Your Goal:
-                </p> -->
                 <p class="is-size-3">
                   {{ goal }}
                 </p>
@@ -39,7 +36,7 @@
           </div>
 
           <!-- Deadline and progress bar -->
-          <div class="section content has-text-centered">
+          <div class="content has-text-centered">
 
             <p class="is-size-6">
               <strong>Deadline is </strong>{{ deadline }} <strong>${{ betAmount }}</strong>
@@ -152,13 +149,16 @@ export default {
 <style>
 
 #sphereContainer {
-  border-radius: 100%;
-  /*background-image: linear-gradient(to right, green, yellow);*/
   background-image: url("./assets/goal_circle.png");
   background-repeat: no-repeat;
   background-position: center; 
+  background-size: contain;
   min-width: 100%;
-  padding: 10%;
+  padding: 20%;
+}
+
+#sphereContent {
+  transform: translate(0, -10%);
 }
 
 .content p:not(:last-child) {
