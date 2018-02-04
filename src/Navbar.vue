@@ -57,7 +57,7 @@ export default {
   },
   data () {
     return {
-      websiteLink: 'http://localhost:8080',
+      websiteLink: 'http://victoryshoe.me/better-web',
       homeLink: '/home',
       socialLink: '/social',
       modals:{
