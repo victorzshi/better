@@ -1,6 +1,6 @@
 <template>
-  <div id="footer">
-    <footer class="footer">
+  <div id="footerDiv">
+    <footer>
       <div class="container">
         <div class="columns">
           <div class="column is-3 is-offset-6">
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'footer',
+  name: 'footerDiv',
   data () {
     return {
       websiteLink: 'http://localhost:8080',
@@ -44,8 +44,9 @@ export default {
 
 <style>
 
-.footer {
-  background-color: #00d1b2;
+footer {
+  background-color: #74B774;
+  padding: 2%;
 }
 
 p a {

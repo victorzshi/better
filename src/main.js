@@ -1,45 +1,41 @@
+// Vue dependencies
 import Vue from 'vue'
-import Navbar from './Navbar.vue'
-import Footer from './Footer.vue'
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+Vue.use(VueRouter)
+
+// Custom Vue components
 import Home from './Home.vue'
 import Social from './Social.vue'
-import NotFound from './NotFound.vue'
+import Navbar from './Navbar.vue'
+import FooterDiv from './Footer.vue'
+// import NotFound from './NotFound.vue'
 
-// Basic routing
-const notFoundPage = NotFound
-const homePage = Home
-const socialPage = Social
-
-const routes = {
-  '/': homePage,
-  '/home': homePage,
-  '/social': socialPage
-}
+// Routing
+const router = new VueRouter({
+  mode: 'history',
+  base: __dirname,
+  routes: [
+    { path: '/', component: Home },
+    { path: '/home', component: Home },
+    { path: '/social/:channel', component: Social }
+  ]
+})
 
 // Rendering
-
-new Vue({
-  el: '#navbar',
-  render: h => h(Navbar)
-})
-
-new Vue({
-  el: '#footer',
-  render: h => h(Footer)
-})
-
 new Vue({
   el: '#app',
-  data: {
-    currentRoute: window.location.pathname
+  router,
+  components: {
+    Navbar,
+    FooterDiv
   },
-  computed: {
-    ViewComponent () {
-      // Seperate group id and get correct page
-      this.currentRoute = this.currentRoute.split('/')
-      this.currentRoute = '/' + this.currentRoute[1] 
-      return routes[this.currentRoute] || notFoundPage
-    }
-  },
-  render (h) { return h(this.ViewComponent) }
+  template: `
+    <div id="app">
+      <Navbar></NavBar>
+      <router-view></router-view>
+      <FooterDiv></FooterDiv>
+    </div>
+  `
 })

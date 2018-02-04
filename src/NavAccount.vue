@@ -8,6 +8,18 @@
           <button class="delete" aria-label="close" v-on:click="closeModal"></button>
         </header>
         <section class="modal-card-body">
+
+          <div class="content">
+            <p class="subtitle">
+              Current settings...
+            </p>
+
+
+
+            <p class="subtitle">
+              New settings...
+            </p>
+          </div>
         	<div class="columns">
 
         		<div class="column is-half">
@@ -21,7 +33,7 @@
 	      			      </select>
 	      			    </div>
 	      			    <div class="icon is-small is-left">
-	      			      <i class="fas fa-globe"></i>
+	      			      <i class="fas fa-money-bill-alt"></i>
 	      			    </div>
 	      			  </div>
       			  </div>
@@ -39,7 +51,7 @@
 	      			      </select>
 	      			    </div>
 	      			    <div class="icon is-small is-left">
-	      			      <i class="fas fa-globe"></i>
+	      			      <i class="fas fa-clock"></i>
 	      			    </div>
 	      			  </div>
       			  </div>

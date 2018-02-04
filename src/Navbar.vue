@@ -1,11 +1,14 @@
 <template>
   <div id="navbar">
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
 
-      <div class="navbar-brand">
-        <a class="navbar-item" :href="getHomeLink">
+      <div class="navbar-start">
+        <!-- <a class="navbar-item" :href="getHomeLink"> -->
+        <router-link to="/home">
+        <a class="navbar-item">
           <img id="brandLogo" src="./assets/logo.png" alt="Better: a social platform for your personal invesment.">
         </a>
+        </router-link>
       </div>
 
       <!-- Left side of navbar -->
@@ -82,22 +85,27 @@ export default {
 
 <style>
 
-.navbar-item #brandLogo {
-    height: 136px;
-    width: 240px;
+.navbar-item img #brandLogo {
+    max-height: 136px;
+    max-width: 240px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.navIcons {
-  max-width: 100px;
-  max-height: 100px;
+.navbar {
+  background-color: #008A00;
 }
 
 a.navbar-item:hover {
-  background-color: transparent;
+  background-color: green;
 }
 
 .navbar-item img {
-    max-height: 100%;
+    max-height: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .fade-enter-active, .fade-leave-active {

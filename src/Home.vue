@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div>
     <section>
       <div class="container">
 
@@ -9,8 +9,8 @@
 
           <div class="content has-text-centered">
 
-            <p class="is-size-3">
-              {{ name }} 
+            <p class="is-size-1">
+              Welcome back, {{ name }}! 
             </p>
 
           </div>
@@ -19,7 +19,7 @@
             <div id="sphereContainer">
               <div id="sphereContent" class="content has-text-centered">
 
-                <p class="is-size-5">
+                <p class="is-size-3">
                   Your Goal:
                 </p>
                 <p class="is-size-1">
@@ -35,11 +35,11 @@
             
           </div>
 
-          <!-- Deadline and progress bar -->
-          <div class="content has-text-centered">
+          <!-- Deadline -->
+          <div id="deadline" class="content has-text-centered">
 
-            <p class="is-size-6">
-              <strong>Deadline is </strong>{{ deadline }} <strong>${{ betAmount }}</strong>
+            <p class="is-size-3">
+              <strong>Deadline is </strong>{{ deadline }} for <strong>${{ betAmount }}</strong>
             </p>
 
             <p class="is-size-6">
@@ -123,26 +123,7 @@ export default {
     this.encouragement = this.encouragements[index]
 
     // Set user info
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        console.log("Successful response from StdLib")
-        let slackResponse = JSON.parse(xmlhttp.responseText)
-        console.log(slackResponse)
-      }
-      else if (xmlhttp.status == 403 || xmlhttp.status == 404) {
-      }
-    }
-    // Get unique slack id for HTTP GET
-    let groupId = window.location.pathname.split('/')
-    console.log("Path names: " + groupId)
-    groupId = groupId[groupId.length - 1]
-    console.log("Current group id: " + groupId)
-
-    // Send request
-    xmlhttp.open('GET', 'https://bigbetter.lib.id/betterdb@dev/getgroup/' + groupId);
-    xmlhttp.send();
-  },
+  }
 }
 </script>
 
@@ -163,6 +144,10 @@ export default {
 
 .content p:not(:last-child) {
   margin-bottom: 0.5em;
+}
+
+#deadline {
+  padding-bottom: 5%;
 }
 
 </style>

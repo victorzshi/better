@@ -1,20 +1,20 @@
 <template>
-  <div id="social">
+  <div>
     <section class="section">
       <div class="container">
 
         <div class="section">
           <h1 class="title has-text-centered">
-            Current money in group pool: ${{ currentPoolMoney }}
+            Current bets in {{ channelName }}
           </h1>
         </div>
 
         <div class="column is-half is-offset-one-quarter">
           
           <GoalCard 
-            v-for="(bet, index) in group"
-            v-bind:key="bet.id"
-            v-bind="bet"
+            v-for="(user, index) in group"
+            v-bind:key="index"
+            v-bind="user"
           ></GoalCard>
           
         </div>
@@ -34,77 +34,76 @@ export default {
   },
   data () {
     return {
-      currentPoolMoney: 50,
-      group: [
-        {
-          id: 1,
-          profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
-          name: 'Victor',
-          goal: 'Wake up early',
-          betAmount: 10,
-          deadline: 'Feb 30, 2018',
-          progress: 5,
-        },
-        {
-          id: 2,
-          profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
-          name: 'Jerry',
-          goal: 'Eat healthy',
-          betAmount: 5,
-          deadline: 'Feb 10, 2018',
-          progress: 60,
-        },
-        {
-          id: 3,
-          profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
-          name: 'Clara',
-          goal: '5k run 3 times/week',
-          betAmount: 50,
-          deadline: 'Aug 15, 2018',
-          progress: 80,
-        },
-        {
-          id: 4,
-          profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
-          name: 'Ray',
-          goal: 'Meal prep every Sunday',
-          betAmount: 20,
-          deadline: 'Mar 4, 2018',
-          progress: 45,
-        }
-      ],
+      channelName: 'placeholder',
+      group: []
+      // group: [
+      //   {
+      //     id: 1,
+      //     profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
+      //     name: 'Victor',
+      //     goal: 'Wake up early',
+      //     betAmount: 10,
+      //     deadline: 'Feb 30, 2018',
+      //     progress: 5,
+      //   },
+      //   {
+      //     id: 2,
+      //     profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
+      //     name: 'Jerry',
+      //     goal: 'Eat healthy',
+      //     betAmount: 5,
+      //     deadline: 'Feb 10, 2018',
+      //     progress: 60,
+      //   },
+      //   {
+      //     id: 3,
+      //     profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
+      //     name: 'Clara',
+      //     goal: '5k run 3 times/week',
+      //     betAmount: 50,
+      //     deadline: 'Aug 15, 2018',
+      //     progress: 80,
+      //   },
+      //   {
+      //     id: 4,
+      //     profilePicture: 'http://www.pieglobal.com/wp-content/uploads/2015/10/placeholder-user.png',
+      //     name: 'Ray',
+      //     goal: 'Meal prep every Sunday',
+      //     betAmount: 20,
+      //     deadline: 'Mar 4, 2018',
+      //     progress: 45,
+      //   }
+      // ],
     }
   },
   created: function() {
-    // Set user info
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        console.log("Successful response from StdLib")
-        let slackResponse = JSON.parse(xmlhttp.responseText)
-        console.log(slackResponse)
-      }
-      else if (xmlhttp.status == 403 || xmlhttp.status == 404) {
-      }
-    }
-    // Get unique slack id for HTTP GET
-    let groupId = window.location.pathname.split('/')
-    groupId = groupId[groupId.length - 1]
-    console.log("Path names: " + groupId)
-    console.log("Social.vue Current group id: " + groupId)
-    groupId = 'C94JEJZGF'
-    
-    // Send request
-    xmlhttp.open('GET', 'https://bigbetter.lib.id/betterdb@dev/getgroup/' + groupId);
-    xmlhttp.send();
-  },
+    // // Get group info for social list
+    // // let groupId = 'C94JEJZGF'
+    console.log(this.$route.params.channel)
+    // GET /someUrl
+    this.$http.get('https://bigbetter.lib.id/betterdb@dev/getgroup/', {params: {channel: this.$route.params.channel}}).then(response => {
+      // get body data
+      // this.someData = response.body;
+      console.log(response.body)
+      this.channelName = response.body.name
+      console.log(this.channelName)
+      this.group = response.body.users
+      console.log("GROUP")
+      console.log(this.group)
+
+    }, response => {
+      // error callback
+      console.log("Social.vue HTTP GET didn't work")
+    });
+
+  }
 }
 </script>
 
 <style>
 
 body {
-  background-color: lightgreen;
+  background-color: #EDF7ED;
 }
 
 </style>
