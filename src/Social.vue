@@ -2,10 +2,12 @@
   <div id="social">
     <section class="section">
       <div class="container">
-        
-        <h1 class="title has-text-centered">
-          Current money in group pool: $50.70
-        </h1>
+
+        <div class="section">
+          <h1 class="title has-text-centered">
+            Current money in group pool: ${{ currentPoolMoney }}
+          </h1>
+        </div>
 
         <div class="column is-half is-offset-one-quarter">
           
@@ -13,8 +15,7 @@
             v-for="(bet, index) in group"
             v-bind:key="bet.id"
             v-bind="bet"
-          >
-          </GoalCard>
+          ></GoalCard>
           
         </div>
       </div>
@@ -33,6 +34,7 @@ export default {
   },
   data () {
     return {
+      currentPoolMoney: 50,
       group: [
         {
           id: 1,
@@ -72,10 +74,36 @@ export default {
         }
       ],
     }
-  }
+  },
+  created: function() {
+    // Set user info
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log("Successful response from StdLib")
+        let slackResponse = JSON.parse(xmlhttp.responseText)
+        console.log(slackResponse)
+      }
+      else if (xmlhttp.status == 403 || xmlhttp.status == 404) {
+      }
+    }
+    // Get unique slack id for HTTP GET
+    let groupId = window.location.pathname.split('/')
+    console.log("Path names: " + groupId)
+    groupId = groupId[groupId.length - 1]
+    console.log("Social.vue Current group id: " + groupId)
+
+    // Send request
+    xmlhttp.open('GET', 'https://bigbetter.lib.id/betterdb@dev/getgroup/' + groupId);
+    xmlhttp.send();
+  },
 }
 </script>
 
 <style>
+
+body {
+  background-color: lightgreen;
+}
 
 </style>

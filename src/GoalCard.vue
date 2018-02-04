@@ -11,16 +11,32 @@
         </p>                
       </figure>
       <div class="media-content">
-        <div class="content has-text-centered">
-          <p class="is-size-3">
-            ${{ betAmount }} 
+        <div class="content">
+          <p class="subtitle">
+            <strong>{{ goal }}</strong> 
           </p>
-          <p>
-            <strong>Goal: </strong>{{ goal }} 
-          </p>
-          <p>
-            <strong>Deadline: </strong>{{ deadline }}
-          </p>
+          <div class="columns">
+            <div class="column is-half">
+              <p class="is-size-5">
+                Due: {{ deadline }}
+                <br>
+                12pm
+              </p>
+              
+            </div>
+            <div class="column is-3 has-text-centered">
+              <p class="is-size-1">
+                ${{ betAmount }} 
+              </p>
+              
+            </div>
+            <div class="column is-3 has-text-centered">
+              <p class="is-size-4">
+                Owes ${{ betAmount }} 
+              </p>
+              
+            </div>
+          </div>
           <progress class="progress is-success" :value="progress"  max="100"></progress>
         </div>
       </div>
@@ -48,6 +64,13 @@ export default {
 
 #profilePicture {
   border-radius: 100%;
+  border-style: solid;
+  border-color: green;
+  border-width: 8px;
+}
+
+div .columns {
+  max-width: 100%;
 }
 
 .section {
