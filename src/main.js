@@ -10,9 +10,9 @@ const homePage = Home
 const socialPage = Social
 
 const routes = {
-  '/better-web/': homePage,
-  '/better-web/home': homePage,
-  '/better-web/social': socialPage
+  '/': homePage,
+  '/home': homePage,
+  '/social': socialPage
 }
 
 // Rendering
