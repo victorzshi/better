@@ -1,9 +1,10 @@
 <template>
   <div id="navbar">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+
       <div class="navbar-brand">
         <a class="navbar-item" :href="getHomeLink">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Better: a social platform for your personal invesment." width="112" height="28">
+          <img id="brandLogo" src="./assets/logo.png" alt="Better: a social platform for your personal invesment.">
         </a>
       </div>
 
@@ -16,23 +17,17 @@
       <div class="navbar-end">
         <a class="navbar-item" :href="getSocialLink">
           <a class="navbar-item">
-            <span class="icon is-large">
-              <i class="fas fa-3x fa-users"></i>
-            </span>
+            <img class="navIcons" src="./assets/social_icon.png">
           </a>
         </a>
         <a class="navbar-item" v-on:click="openModal('help')">
           <a class="navbar-item">
-            <span class="icon is-large">
-              <i class="fas fa-3x fa-info-circle"></i>
-            </span>
+            <img class="navIcons" src="./assets/info_icon.png">
           </a>
         </a>
         <a class="navbar-item" v-on:click="openModal('account')">
           <a class="navbar-item">
-            <span class="icon is-large">
-              <i class="fas fa-3x fa-user-circle"></i>
-            </span>
+            <img class="navIcons" src="./assets/profile_icon.png">
           </a>
         </a>
       </div>
@@ -86,6 +81,24 @@ export default {
 </script>
 
 <style>
+
+.navbar-item #brandLogo {
+    height: 136px;
+    width: 240px;
+}
+
+.navIcons {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+a.navbar-item:hover {
+  background-color: transparent;
+}
+
+.navbar-item img {
+    max-height: 100%;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s ease;

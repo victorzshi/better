@@ -20,15 +20,15 @@
               <div class="content has-text-centered">
 
                 <p class="is-size-5">
-                  You Bet:
-                </p>
-                <p class="is-size-1">
-                  ${{ betAmount }} 
-                </p>
-
-                <p class="is-size-5">
                   Your Goal:
                 </p>
+                <p class="is-size-1">
+                  {{ progress }}%
+                </p>
+
+                <!-- <p class="is-size-5">
+                  Your Goal:
+                </p> -->
                 <p class="is-size-3">
                   {{ goal }}
                 </p>
@@ -42,10 +42,8 @@
           <div class="section content has-text-centered">
 
             <p class="is-size-6">
-              <strong>Deadline is </strong>{{ deadline }}
+              <strong>Deadline is </strong>{{ deadline }} <strong>${{ betAmount }}</strong>
             </p>
-
-            <progress class="progress is-success" :value="progress" max="100">60%</progress>
 
             <p class="is-size-6">
               <em>{{ encouragement }}</em>
@@ -155,7 +153,8 @@ export default {
 
 #sphereContainer {
   border-radius: 100%;
-  background-image: linear-gradient(to right, green, yellow);
+  /*background-image: linear-gradient(to right, green, yellow);*/
+  background-image: url("./assets/goal_circle.png");
   background-repeat: no-repeat;
   background-position: center; 
   min-width: 100%;

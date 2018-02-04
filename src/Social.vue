@@ -2,29 +2,10 @@
   <div id="social">
     <section class="section">
       <div class="container">
+        
         <h1 class="title has-text-centered">
           Current money in group pool: $50.70
         </h1>
-
-        <!-- Alternative 2 column formatting -->
-        <!-- <div class="columns">
-          <div class="column is-half">
-            <GoalCard 
-              v-for="(bet, index) in group"
-              v-bind:key="bet.id"
-              v-bind="bet"
-            >
-            </GoalCard>
-          </div>
-          <div class="column is-half">
-            <GoalCard 
-              v-for="(bet, index) in group"
-              v-bind:key="bet.id"
-              v-bind="bet"
-            >
-            </GoalCard>
-          </div>
-        </div> -->
 
         <div class="column is-half is-offset-one-quarter">
           
