@@ -1,5 +1,7 @@
 # Better
 
+![Better](better.png)
+
 A self-improvement platform for putting your money where your mouth is!
 
 Here's how it works:
@@ -7,13 +9,12 @@ Here's how it works:
 1. Create a pool with your friends, family, or coworkers.
 2. Bet money towards any goal.
 
-If you don't complete your goal, then you lose and your money goes into the pool... however, if you do complete your goal, then get your money back and split the pool!
+If you don't complete your goal, then you lose and your money goes into the pool.
+However, if you do complete your goal, then get your money back and split the pool!
 
-> Pro tip: The bigger you bet, the more you can win!
+> Pro tip: The bigger you bet, the more you can win...
 
-Developed for [QHacks 2018](https://qhacks2018.devpost.com/).
-
-![Scoreboard](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/597/726/datas/original.png)
+Built in 36 hours for [QHacks 2018](https://qhacks2018.devpost.com/).
 
 ## Setup
 
