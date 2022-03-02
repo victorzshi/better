@@ -1,10 +1,23 @@
-# qhacks-project
+# Better
 
-> HR platform designed for company culture work-life balance
+A self-improvement platform for putting your money where your mouth is!
 
-## Build Setup
+Here's how it works:
 
-``` bash
+1. Create a pool with your friends, family, or coworkers.
+2. Bet money towards any goal.
+
+If you don't complete your goal, then you lose and your money goes into the pool... however, if you do complete your goal, then get your money back and split the pool!
+
+> Pro tip: The bigger you bet, the more you can win!
+
+Developed for [QHacks 2018](https://qhacks2018.devpost.com/).
+
+![Scoreboard](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/597/726/datas/original.png)
+
+## Setup
+
+```bash
 # install dependencies
 npm install
 
@@ -16,3 +29,16 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Awards
+
+- Balsamiq Prize: Awarded for the best designed hack!
+
+See the [Devpost submission](https://devpost.com/software/better).
+
+## Authors
+
+- Clara Chen (Designer)
+- Jerry Yuan Chen (Programmer)
+- Taihyun Lee (Programmer)
+- Victor Zhuoyue Shi (Programmer)
