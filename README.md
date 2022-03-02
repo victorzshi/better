@@ -1,6 +1,6 @@
 # Better
 
-![Better](better.png)
+![Pool](better.png)
 
 A self-improvement platform for putting your money where your mouth is!
 
